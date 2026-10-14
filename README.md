@@ -142,7 +142,3 @@ Assincronicidade no cliente é o cliente não bloquear após a chamada. Concorr�
 
 **8. As duas chamadas RPC foram realmente executadas simultaneamente ou concorrentemente? Explique considerando o ambiente utilizado.**
 Foram executadas **concorrentemente**, com sobreposição no tempo (no assíncrono: 23:37:04–23:37:14 e 23:37:07–23:37:12, em `worker-4` e `worker-1`). Se houve execução em **paralelo** de fato depende do hardware: o servidor roda em uma VM do VirtualBox com N vCPU(s), que compartilha os núcleos do host com as outras VMs; o paralelismo real exige mais de um núcleo disponível. Como as operações demoradas usam `Thread.sleep` (a thread fica bloqueada sem consumir CPU), a sobreposição aconteceria mesmo com um único núcleo. Em uma carga de CPU intensiva, o ganho dependeria do número de vCPUs.
-
-## 9. Vídeo
-
-Link do vídeo: (preencher)
